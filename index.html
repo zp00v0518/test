@@ -3,18 +3,29 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Test Site</title>
-	<link rel="stylesheet" href="style/style.css">
-
+	<link rel="stylesheet" href="style/test.css">
+    <script>
+      console.log(document.referrer)
+      console.log(location)
+      if (location.pathname && location.search) {
+        const url = new URL(location)
+        const params = url.searchParams
+        const code = params.get('code')
+        if (code) {
+          const service = localStorage.authService;
+          if (service) {
+            const authData = {
+            service: service,
+            code: code
+            }
+            localStorage.authData = JSON.stringify(authData)
+          }
+        }
+      }
+    </script>
 
   <body>
   	<h1 id="one">TestSite</h1>
-  	<h1>TestSite</h1>
-  	<h1>TestSite</h1>
-  	<h1>TestSite</h1>
-  	<h1>TestSite</h1>
-  	<h1>TestSite</h1>
-  	<h1>TestSite</h1>
-  	<h1>TestSite</h1>
   	<h1>TestSite</h1>
   	<h1>TestSite</h1>
   	<h1>TestSite</h1>

@@ -1,0 +1,7 @@
+body {
+	height: auto;
+	overflow: auto;
+}
+#one {
+	background-color: grey;
+}
