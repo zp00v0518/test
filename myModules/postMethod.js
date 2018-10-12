@@ -9,7 +9,7 @@ function postMethod(req,res, urlParse) {
 			data += chunk;
 		})
 		req.on("end", function(){
-			// console.log(data)
+			console.log(data)
 			res.writeHead(200, {"Content-Type": "text/plain"});
 			res.end(data);
 
