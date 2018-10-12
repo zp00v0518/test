@@ -29,9 +29,19 @@
   	<script async src="https://telegram.org/js/telegram-widget.js?4" data-telegram-login="MonexTestRobot" data-size="medium" data-onauth="onTelegramAuth(user)" data-request-access="write"></script>
 <script type="text/javascript">
   function onTelegramAuth(user) {
-    console.log('Logged in as ' + user.first_name + ' ' + user.last_name + ' (' + user.id + (user.username ? ', @' + user.username : '') + ')');
   	console.log(user)
-    
+  	let data = JSON.stringify(user)
+  	var xhr = new XMLHttpRequest();
+		xhr.open("POST", 'https://newmonex.e-cash.pro/login_tg', true);
+		xhr.setRequestHeader("Content-Type", "text/plain");
+		xhr.send(data);
+		console.log("Запрос ушел")
+		xhr.onreadystatechange = function(){
+			if (xhr.readyState !=4) return;
+			if(xhr.status == 200) {
+				console.log(xhr.responseText);
+			}
+		};
   }
 </script>
 
