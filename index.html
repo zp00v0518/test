@@ -5,25 +5,22 @@
 	<title>Test Site</title>
 	<link rel="stylesheet" href="style/test.css">
   <body>
-  	<h1 id="one">TestSite</h1>
-  	<script async src="https://telegram.org/js/telegram-widget.js?4" data-telegram-login="MonexTestRobot" data-size="medium" data-onauth="onTelegramAuth(user)" data-request-access="write"></script>
-<script type="text/javascript">
-  // function onTelegramAuth(user) {
-  // 	console.log(user)
-  // 	let data = JSON.stringify(user)
-  // 	var xhr = new XMLHttpRequest();
-		// xhr.open("POST", 'https://newmonex.e-cash.pro/login_fd', true);
-		// xhr.setRequestHeader("Content-Type", "text/plain");
-		// xhr.send(data);
-		// console.log("Запрос ушел")
-		// xhr.onreadystatechange = function(){
-		// 	if (xhr.readyState !=4) return;
-		// 	if(xhr.status == 200) {
-		// 		console.log(xhr.responseText);
-		// 	}
-		// };
-  // }
-</script>
+  	<div class="wrap">TestSite  	
+  		<script async src="https://telegram.org/js/telegram-widget.js?4" data-telegram-login="TestRobot" data-size="medium" data-onauth="onTelegramAuth(user)" data-request-access="write"></script>
+  	</div>
+
+
+<a href="http://test.dobuy.com.ua/vidjet2.html">Тест Виджета на другой странице</a>
+  	 <div class="wrap">TestSite 2 	
+  		<script async src="https://telegram.org/js/telegram-widget.js?4" data-telegram-login="TestRobot" data-size="medium" data-onauth="onTelegramAuth(user)" data-request-access="write"></script>
+  	</div>
+
+		<script type="text/javascript">
+		  function onTelegramAuth(user) {
+		  	console.log(user)
+		  }
+		</script>
+
 
     <script src="js/test.js"></script>
   </body>
