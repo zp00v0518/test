@@ -1,14 +1,16 @@
-	const target = document.getElementById('elem');
+	const target = document.querySelectorAll('.item');
 	document.addEventListener('scroll', handlerScroll);
 	window.addEventListener('resize', handlerScroll)
 	
 	function handlerScroll () {
 		const center = document.documentElement.clientHeight/2;
-		const data = target.getBoundingClientRect();
-		const height = data.height;
-		const top = data.top;
-		const position = center - (height/2);
-		target.style.opacity = (top <= position) ? 1 : 0.2
+		target.forEach((elem) => {
+			const data = elem.getBoundingClientRect();
+			const height = data.height;
+			const top = data.top;
+			const position = center - (height/2);
+			elem.style.opacity = (top <= position) ? 1 : 0.2
+		})
 	}
 
 
