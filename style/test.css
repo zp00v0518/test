@@ -25,3 +25,8 @@ height: 200vh;
 	opacity: 0.3;
 	transition: 0.5s;
 }
+#code{
+	position: fixed;
+	top: 0;
+	left: 0;
+}

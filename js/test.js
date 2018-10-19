@@ -1,5 +1,6 @@
 	const target = document.getElementById('elem');
 	document.addEventListener('scroll', handlerScroll);
+	window.addEventListener('resize', handlerScroll)
 	
 	function handlerScroll () {
 		const center = document.documentElement.clientHeight/2;

@@ -5,6 +5,19 @@
 	<title>Test Site</title>
 	<link rel="stylesheet" href="style/test.css">
   <body>
+  	<code  id="code">
+		  const target = document.getElementById('elem');
+			document.addEventListener('scroll', handlerScroll);
+			
+			function handlerScroll () {
+				const center = document.documentElement.clientHeight/2;
+				const data = target.getBoundingClientRect();
+				const height = data.height;
+				const top = data.top;
+				const position = center - (height/2);
+				target.style.opacity = (top <= position) ? 1 : 0.2
+			}
+  	</code>
 <!--   	<div id="one" class="wrap">TestSite  	
   		<script defer src="https://telegram.org/js/telegram-widget.js?4" data-telegram-login="dobuyTestBot" data-size="medium" data-onauth="onTelegramAuth(user)" data-request-access="write"></script>
   	</div>
