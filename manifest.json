@@ -1,0 +1,10 @@
+{
+  "name": "Snake",
+  "short_name": "Snake",
+  "icons": [{ "src": "zmei.png", "sizes": "500x500", "type": "image/png" }],
+  "start_url": "index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FF0000",
+  "theme_color": "#FF0000"
+}
