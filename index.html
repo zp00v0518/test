@@ -1,31 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Test Site</title>
-	<link rel="stylesheet" href="style/test.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PWA</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="style/style.css" />
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker
+            .register('sw.js')
+            .then(reg => {})
+            .catch(err => {
+              const div = document.createElement('div');
+              div.innerText = 'serviceWorker not registred';
+              document.body.appendChild(div);
+            });
+        });
+      } else {
+        const div = document.createElement('div');
+        div.innerText = 'serviceWorker not supported';
+        document.body.appendChild(div);
+      }
+    </script>
+    <script src="js/sourceLoader.js"></script>
+  </head>
   <body>
-<!--   	<div id="one" class="wrap">TestSite  	
-  		<script defer src="https://telegram.org/js/telegram-widget.js?4" data-telegram-login="dobuyTestBot" data-size="medium" data-onauth="onTelegramAuth(user)" data-request-access="write"></script>
-  	</div>
-
-
-<a href="http://test.dobuy.com.ua/vidjet2.html">Тест Виджета на другой странице</a>
-  	 <div id="two" class="wrap">TestSite 2 	
-
-  	</div>
-
-		<script type="text/javascript">
-		  function onTelegramAuth(user) {
-		  	console.log(user)
-		  }
-		</script> -->
-			<div class="item"></div>
-			<div class="item"></div>
-			<div class="item"></div>
-			<div class="item"></div>
-
-
-    <script src="js/test.js"></script>
+    <canvas id="canvas"></canvas>
+    <button id="promptBtn" type="button">Click</button>
+    <section class="control__wrap">
+      <button
+        type="button"
+        class="control left"
+        onclick="changeWay(event, 'ArrowLeft')"
+      >
+        Left
+      </button>
+      <button
+        type="button"
+        class="control right"
+        onclick="changeWay(event, 'ArrowRight')"
+      >
+        Right
+      </button>
+      <button
+        type="button"
+        class="control top"
+        onclick="changeWay(event, 'ArrowUp')"
+      >
+        Top
+      </button>
+      <button
+        type="button"
+        class="control down"
+        onclick="changeWay(event, 'ArrowDown')"
+      >
+        Down
+      </button>
+    </section>
+    <script src="js/game.js"></script>
+    <script>
+      let defferredPrompt;
+      const promptBtn = document.getElementById('promptBtn');
+      window.addEventListener('beforeinstallprompt', e => {
+        console.log(e);
+        e.preventDefault();
+        defferredPrompt = e;
+        promptBtn.style.display = 'block';
+      });
+      promptBtn.addEventListener('click', e => {
+        defferredPrompt.prompt();
+        defferredPrompt.userChoice.then(choiceResult => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('User accepted the A2HS prompt');
+          }
+          defferredPrompt = null;
+        });
+      });
+      window.addEventListener('appinstalled', evt => {
+        app.logEvent('a2hs', 'installed');
+      });
+    </script>
   </body>
 </html>
