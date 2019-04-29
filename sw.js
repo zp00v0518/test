@@ -8,14 +8,14 @@ const resourcesToPrecache = [
   'js/Keys.js',
   'js/sourceLoader.js',
   'favicon.ico',
-  'js/liveReload.js',
-  'img/zmei.png',
+  'zmei.png',
 ];
 
 self.addEventListener('install', event => {
   console.log('Install event');
   event.waitUntil(
     caches.open(cacheName).then(cache => {
+      
       return cache.addAll(resourcesToPrecache);
     }),
   );
