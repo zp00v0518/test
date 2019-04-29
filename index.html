@@ -79,7 +79,8 @@
         });
       });
       window.addEventListener('appinstalled', evt => {
-        app.logEvent('a2hs', 'installed');
+				console.log('appinstalled', evt)
+        // app.logEvent('a2hs', 'installed');
       });
     </script>
   </body>
