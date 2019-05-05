@@ -4,7 +4,7 @@ button.addEventListener('click', function(e) {
   requestPush().then(result =>{
     showNotification();
   }).catch(result =>{
-    alert("Для тестирования, можно было и разрешить")
+    alert(result)
   })
 });
 
