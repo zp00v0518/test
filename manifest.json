@@ -1,10 +1,17 @@
 {
   "name": "Snake",
   "short_name": "Snake",
-  "icons": [{ "src": "zmei.png", "sizes": "500x500", "type": "image/png" }],
+  "description": "Best of the best Snake game",
+  "icons": [
+    {
+      "src": "zmei.png",
+      "sizes": "500x500",
+      "type": "image/png"
+    }
+  ],
   "start_url": "index.html",
   "display": "standalone",
-  "orientation": "any",
+  "orientation": "landscape",
   "background_color": "#148eff",
   "theme_color": "#148eff"
 }
