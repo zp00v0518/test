@@ -1,12 +1,12 @@
-// var button = document.getElementById("notifications");
+var button = document.getElementById("notifications");
 
-// button.addEventListener('click', function(e) {
-//   requestPush().then(result =>{
-//     showNotification();
-//   }).catch(result =>{
-//     alert("Для тестирования, можно было и разрешить")
-//   })
-// });
+button.addEventListener('click', function(e) {
+  requestPush().then(result =>{
+    showNotification();
+  }).catch(result =>{
+    alert("Для тестирования, можно было и разрешить")
+  })
+});
 
 function requestPush(){
   return new Promise((resolve, reject) => {
