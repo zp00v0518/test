@@ -11,9 +11,12 @@
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
           navigator.serviceWorker
-            .register('sw.js')
-            .then(reg => {})
+            .register('sw.js',)
+            .then(reg => {
+              // console.log(reg);
+            })
             .catch(err => {
+              // console.log(err);
               const div = document.createElement('div');
               div.innerText = 'serviceWorker not registred';
               document.body.appendChild(div);
@@ -25,11 +28,13 @@
         document.body.appendChild(div);
       }
     </script>
+   
     <script src="js/sourceLoader.js"></script>
   </head>
   <body>
     <canvas id="canvas"></canvas>
-    <button id="promptBtn" type="button">Install Me</button>
+    <button id="promptBtn" type="button">Install me</button>
+    <!-- <button id='notifications' type="button">Notification</button> -->
     <section class="control__wrap">
       <button
         type="button"
@@ -61,11 +66,12 @@
       </button>
     </section>
     <script src="js/game.js"></script>
+    <script src="js/liveReload.js"></script>
+    <script src="js/push.js"></script>
     <script>
       let defferredPrompt;
       const promptBtn = document.getElementById('promptBtn');
       window.addEventListener('beforeinstallprompt', e => {
-        console.log(e);
         e.preventDefault();
         defferredPrompt = e;
         promptBtn.style.display = 'block';
@@ -74,14 +80,17 @@
         defferredPrompt.prompt();
         defferredPrompt.userChoice.then(choiceResult => {
           if (choiceResult.outcome === 'accepted') {
-            console.log('User accepted the A2HS prompt');
           }
           defferredPrompt = null;
         });
       });
       window.addEventListener('appinstalled', evt => {
-				console.log('appinstalled', evt)
-        // app.logEvent('a2hs', 'installed');
+        requestPush().then(result =>{
+          setTimeout(showNotification, 10000)
+          setTimeout(showNotification, 20000)
+        }).catch(result =>{
+          alert("Для тестирования, можно было и разрешить")
+        })
       });
     </script>
   </body>

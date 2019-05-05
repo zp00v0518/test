@@ -1,4 +1,3 @@
-const cacheName = '1.0.2';
 const resourcesToPrecache = [
   '/',
   'index.html',
@@ -7,28 +6,29 @@ const resourcesToPrecache = [
   'js/game.js',
   'js/Keys.js',
   'js/sourceLoader.js',
+  'js/push.js',
   'favicon.ico',
-  'zmei.png',
+  'js/liveReload.js',
+  'img/zmei.png',
+  'liveReload.js',
 ];
 
 self.addEventListener('install', event => {
   console.log('Install event');
   event.waitUntil(
     caches.open(cacheName).then(cache => {
-      
       return cache.addAll(resourcesToPrecache);
     }),
   );
 });
 
-self.addEventListener('activate', event => {
-  console.log('activate event', event);
-});
-
 self.addEventListener('fetch', event => {
-  // console.log('fetch intercepted for', event);
-  event.respondWith(caches.match(event.request).then(cachedResponse => {
-    return cachedResponse || fetch(event.request);
-  }).catch(err => console.log(err))
+  event.respondWith(
+    caches
+      .match(event.request)
+      .then(cachedResponse => {
+        return cachedResponse || fetch(event.request);
+      })
+      .catch(err => console.log(err)),
   );
 });
