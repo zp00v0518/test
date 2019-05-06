@@ -242,6 +242,7 @@ function drawFood(x, y) {
 
 function gameOver() {
   clearInterval(timerId);
+  navigator.vibrate([100,50,100,50,100,20,100,20,100,50,100,20,100])
   alert('Вы проиграли');
   canvas.clear();
   Keys.nowPressName = '';
