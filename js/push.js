@@ -1,14 +1,14 @@
 var button = document.getElementById('notifications');
+let count = 1;
 
 button.addEventListener('click', function(e) {
   requestPush()
     .then(result => {
       getServiceWorker().then(sw => {
-        showNotification(sw);
-        // setTimeout(() => {
-        //   showNotification(sw);
-        // }, 10000);
-      })
+        setTimeout(() => {
+          showNotification(sw);
+        }, count * 1000);
+      });
     })
     .catch(result => {
       alert(result);
@@ -28,7 +28,7 @@ function requestPush() {
 }
 
 function showNotification(sw) {
-  console.log(sw)
+  count += 10;
   const options = {
     body: 'Нажми кнопку еще раз',
     icon: 'zmei.png',
@@ -39,7 +39,8 @@ function showNotification(sw) {
 
 function getServiceWorker() {
   return new Promise((resolve, reject) => {
-    navigator.serviceWorker.getRegistration()
+    navigator.serviceWorker
+      .getRegistration()
       .then(reg => {
         return resolve(reg);
       })

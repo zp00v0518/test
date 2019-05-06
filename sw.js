@@ -1,4 +1,4 @@
-const cacheName = 'cache-v12';
+const cacheName = 'cache-v13';
 const resourcesToPrecache = [
   '/',
   'index.html',
@@ -9,7 +9,7 @@ const resourcesToPrecache = [
   'js/sourceLoader.js',
   'js/push.js',
   'favicon.ico',
-  'img/zmei.png',
+  'zmei.png',
 ];
 
 self.addEventListener('install', event => {
