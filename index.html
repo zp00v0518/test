@@ -66,7 +66,6 @@
       </button>
     </section>
     <script src="js/game.js"></script>
-    <script src="js/liveReload.js"></script>
     <script src="js/push.js"></script>
     <script>
       let defferredPrompt;
@@ -86,8 +85,7 @@
       });
       window.addEventListener('appinstalled', evt => {
         requestPush().then(result =>{
-          setTimeout(showNotification, 10000)
-          setTimeout(showNotification, 20000)
+          // setTimeout(showNotification, 10000)
         }).catch(result =>{
           alert(result)
         })

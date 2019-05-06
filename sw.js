@@ -1,3 +1,4 @@
+const cacheName = '1.0.4';
 const resourcesToPrecache = [
   '/',
   'index.html',
@@ -8,9 +9,7 @@ const resourcesToPrecache = [
   'js/sourceLoader.js',
   'js/push.js',
   'favicon.ico',
-  'js/liveReload.js',
   'img/zmei.png',
-  'liveReload.js',
 ];
 
 self.addEventListener('install', event => {

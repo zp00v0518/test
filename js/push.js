@@ -5,9 +5,9 @@ button.addEventListener('click', function(e) {
     .then(result => {
       getServiceWorker().then(sw => {
         showNotification(sw);
-        setTimeout(() => {
-          showNotification(sw);
-        }, 10000);
+        // setTimeout(() => {
+        //   showNotification(sw);
+        // }, 10000);
       })
     })
     .catch(result => {
@@ -29,11 +29,11 @@ function requestPush() {
 
 function showNotification(sw) {
   const options = {
-    body: 'world',
+    body: 'Нажми кнопку еще раз',
     icon: 'zmei.png',
-    vibrate: [100, 50, 100],
+    vibrate: [250, 100, 250, 100, 250],
   };
-  sw.showNotification('hello', options);
+  sw.showNotification('Привет', options);
 }
 
 function getServiceWorker() {
