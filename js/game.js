@@ -61,7 +61,7 @@ function SectionSnake(x, y, color) {
   this.height = heightBody;
   this.posX = x == 0 ? 0 : x || 0;
   this.posY = y == 0 ? 0 : y || 0;
-  this.color = color || '#148eff';
+  this.color = color || 'blue';
 }
 
 function createStartSnake(sumSection, startX, startY) {
@@ -241,11 +241,13 @@ function drawFood(x, y) {
 }
 
 function gameOver() {
-  navigator.vibrate([400])
+  navigator.vibrate([400,100,400])
   clearInterval(timerId);
   canvas.clear();
   Keys.nowPressName = '';
   Snake = [];
-  alert('Вы проиграли');
+  setTimeout(()=>{
+    alert('Вы проиграли');
+  },100)
   createStartSnake();
 }
