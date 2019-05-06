@@ -1,4 +1,4 @@
-const cacheName = 'cache-v11';
+const cacheName = 'cache-v12';
 const resourcesToPrecache = [
   '/',
   'index.html',
@@ -17,6 +17,8 @@ self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(cacheName).then(cache => {
       return cache.addAll(resourcesToPrecache);
+    }).catch(err => {
+      console.log(err)
     }),
   );
 });
