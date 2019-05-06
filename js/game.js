@@ -2,20 +2,52 @@ sourceLoader.load('js', 'js/Canvas.js');
 sourceLoader.load('js', 'js/Keys.js');
 
 window.addEventListener('keydown', changeWay);
-
+// window.addEventListener("keypress", changeWay);
+let sizeCellSnake = 15;
 let canvas,
   Snake = [],
   Food = [],
   timerId = 0,
-  widthBody = 15,
-  heightBody = 15,
   speed = 180,
   startBodySnake = 1;
 
 const documentWidth = document.documentElement.clientWidth;
 const documentHeight = document.documentElement.clientHeight;
-const sumWidthFeild = Math.ceil(Math.ceil(documentWidth / widthBody) / 1.7);
-const sumHeightFeild = Math.ceil(Math.ceil(documentHeight / heightBody) / 2);
+
+function checkOrientation(width, height) {
+  return width >= height ? 'gorizontal' : 'vertical';
+}
+
+let sumWidthFeild;
+let sumHeightFeild;
+
+function getSizeGameWindow(width, height) {
+	const orientation = checkOrientation(width, height);
+  sumWidthFeild = Math.ceil(Math.ceil(width / sizeCellSnake) / 1.7);
+  sumHeightFeild = Math.ceil(Math.ceil(height / sizeCellSnake) / 2);
+  if (orientation === 'vertical') {
+    if (width <= 425) {
+      sizeCellSnake = 12;
+      sumWidthFeild = Math.ceil(Math.ceil(width / sizeCellSnake));
+      sumHeightFeild = Math.ceil(Math.ceil(height / sizeCellSnake) / 1.9);
+      return;
+    } else if (width <= 768) {
+      sumWidthFeild = Math.ceil(Math.ceil(width / sizeCellSnake) / 1.3);
+    }
+  } else if (orientation === 'gorizontal') {
+    if (width <= 768) {
+      sizeCellSnake = 12;
+      sumWidthFeild = Math.ceil(Math.ceil(width / sizeCellSnake));
+      sumHeightFeild = Math.ceil(Math.ceil(height / sizeCellSnake) / 2);
+      return;
+    }
+  }
+}
+
+getSizeGameWindow(documentWidth, documentHeight);
+
+let widthBody = sizeCellSnake;
+let heightBody = sizeCellSnake;
 
 sourceLoader.loadingEnd(function() {
   canvas = new Canvas('canvas');
@@ -104,7 +136,7 @@ function addSnakeSection(way, callback) {
   let section = Snake[i];
   let posX = section.posX;
   let posY = section.posY;
-  if (way === 'right') {
+  if (way == 'right') {
     posX = posX + section.width;
     if (posX >= canvas.width) {
       posX = 0;
@@ -165,7 +197,7 @@ function checkCrash(snakeSection, callback) {
   for (let i = 0; i < Snake.length; i++) {
     var startX = Snake[i].posX;
     var startY = Snake[i].posY;
-    if (x === startX && y === startY) {
+    if (x == startX && y == startY) {
       gameOver();
       return;
       break;
@@ -180,6 +212,7 @@ function checkEatFood(snakeSection) {
     Food.posX == Snake[0].posX;
     Food.posY == Snake[0].posY;
     Snake.push(Food);
+    navigator.vibrate(200);
     getRandomPosition();
     return;
   }
