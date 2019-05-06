@@ -8,7 +8,7 @@ let canvas,
   Snake = [],
   Food = [],
   timerId = 0,
-  speed = 180,
+  speed = 250,
   startBodySnake = 1;
 
 const documentWidth = document.documentElement.clientWidth;
@@ -27,7 +27,7 @@ function getSizeGameWindow(width, height) {
   sumHeightFeild = Math.ceil(Math.ceil(height / sizeCellSnake) / 2);
   if (orientation === 'vertical') {
     if (width <= 425) {
-      // sizeCellSnake = 13;
+      // sizeCellSnake = 12;
       sumWidthFeild = Math.ceil(Math.ceil(width / sizeCellSnake));
       sumHeightFeild = Math.ceil(Math.ceil(height / sizeCellSnake) / 1.9);
       return;
@@ -36,7 +36,7 @@ function getSizeGameWindow(width, height) {
     }
   } else if (orientation === 'gorizontal') {
     if (width <= 768) {
-      // sizeCellSnake = 13;
+      // sizeCellSnake = 12;
       sumWidthFeild = Math.ceil(Math.ceil(width / sizeCellSnake));
       sumHeightFeild = Math.ceil(Math.ceil(height / sizeCellSnake) / 2);
       return;
