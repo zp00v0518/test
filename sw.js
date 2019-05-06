@@ -1,4 +1,4 @@
-const cacheName = '1.0.4';
+const cacheName = '1.0.6';
 const resourcesToPrecache = [
   '/',
   'index.html',
