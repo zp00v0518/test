@@ -27,7 +27,7 @@ function getSizeGameWindow(width, height) {
   sumHeightFeild = Math.ceil(Math.ceil(height / sizeCellSnake) / 2);
   if (orientation === 'vertical') {
     if (width <= 425) {
-      sizeCellSnake = 13;
+      // sizeCellSnake = 13;
       sumWidthFeild = Math.ceil(Math.ceil(width / sizeCellSnake));
       sumHeightFeild = Math.ceil(Math.ceil(height / sizeCellSnake) / 1.9);
       return;
@@ -36,7 +36,7 @@ function getSizeGameWindow(width, height) {
     }
   } else if (orientation === 'gorizontal') {
     if (width <= 768) {
-      sizeCellSnake = 13;
+      // sizeCellSnake = 13;
       sumWidthFeild = Math.ceil(Math.ceil(width / sizeCellSnake));
       sumHeightFeild = Math.ceil(Math.ceil(height / sizeCellSnake) / 2);
       return;
@@ -61,7 +61,7 @@ function SectionSnake(x, y, color) {
   this.height = heightBody;
   this.posX = x == 0 ? 0 : x || 0;
   this.posY = y == 0 ? 0 : y || 0;
-  this.color = color || 'blue';
+  this.color = color || '#148eff';
 }
 
 function createStartSnake(sumSection, startX, startY) {
