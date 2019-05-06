@@ -241,13 +241,13 @@ function drawFood(x, y) {
 }
 
 function gameOver() {
-  navigator.vibrate([400,100,400])
+  navigator.vibrate([400,50,400])
   clearInterval(timerId);
   canvas.clear();
   Keys.nowPressName = '';
   Snake = [];
   setTimeout(()=>{
     alert('Вы проиграли');
-  },100)
+  },300)
   createStartSnake();
 }
