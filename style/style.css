@@ -61,6 +61,6 @@ body{
 		display: none;
 	}
 }
-#notifications{
+#notifications, #notifications_two{
 	align-self: center;
 }
