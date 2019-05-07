@@ -58,6 +58,7 @@ body{
 }
 @media (max-width:1024px) {
   #notifications {
+		width: 45px;
 		display: none;
 	}
 }
