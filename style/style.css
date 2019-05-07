@@ -52,7 +52,7 @@ body{
 }
 #notifications {
 	margin: 10px;
-	display: none;
+	padding: 5px;
 }
 
 @media (min-width:1024px) {
