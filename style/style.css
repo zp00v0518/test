@@ -56,6 +56,11 @@ body{
 		display: none;
 	}
 }
+@media (max-width:1024px) {
+  #notifications {
+		display: none;
+	}
+}
 #notifications{
 	align-self: center;
 }

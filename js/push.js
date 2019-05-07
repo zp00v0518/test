@@ -1,5 +1,20 @@
-var button = document.getElementById('notifications');
+const button = document.getElementById('notifications');
+const button_2 = document.getElementById('notifications_two')
 let count = 1;
+
+button_2.addEventListener('click', function(e) {
+  requestPush()
+    .then(result => {
+      getServiceWorker().then(sw => {
+        setTimeout(() => {
+          showNotification(sw);
+        }, count * 1000);
+      });
+    })
+    .catch(result => {
+      alert(result);
+    });
+});
 
 button.addEventListener('click', function(e) {
   requestPush()
