@@ -43,7 +43,7 @@ function requestPush() {
 }
 
 function showNotification(sw) {
-  count += 10;
+  count += 1;
   const options = {
     body: 'Нажми кнопку еще раз',
     icon: 'zmei.png',
