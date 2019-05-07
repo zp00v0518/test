@@ -40,6 +40,8 @@ function getSizeGameWindow(width, height) {
       sumWidthFeild = Math.ceil(Math.ceil(width / sizeCellSnake));
       sumHeightFeild = Math.ceil(Math.ceil(height / sizeCellSnake) / 2);
       return;
+    } else if (width >= 1440){
+      sumWidthFeild = Math.ceil(Math.ceil(width / sizeCellSnake) / 1.9);
     }
   }
 }
