@@ -214,7 +214,7 @@ function checkEatFood(snakeSection) {
     Food.posX == Snake[0].posX;
     Food.posY == Snake[0].posY;
     Snake.push(Food);
-    navigator.vibrate(200);
+    // navigator.vibrate(200);
     getRandomPosition();
     return;
   }
@@ -243,13 +243,13 @@ function drawFood(x, y) {
 }
 
 function gameOver() {
-  navigator.vibrate([400,50,400])
+  navigator.vibrate([600])
   clearInterval(timerId);
-  canvas.clear();
   Keys.nowPressName = '';
   Snake = [];
   setTimeout(()=>{
     alert('Вы проиграли');
-  },300)
-  createStartSnake();
+    canvas.clear();
+    createStartSnake();
+  },750)
 }
