@@ -8,7 +8,7 @@ button_2.addEventListener('click', function(e) {
       getServiceWorker().then(sw => {
         setTimeout(() => {
           showNotification(sw);
-        }, count * 1000);
+        }, 1000);
       });
     })
     .catch(result => {
@@ -22,7 +22,7 @@ button.addEventListener('click', function(e) {
       getServiceWorker().then(sw => {
         setTimeout(() => {
           showNotification(sw);
-        }, count * 1000);
+        }, 1000);
       });
     })
     .catch(result => {
